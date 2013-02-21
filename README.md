@@ -1,13 +1,20 @@
-se_app_spec
-app_template_with_rspec_gem
-!! do not push changes to this template !!
-Note:
-  1.  Create a new repo at github.
-  2.  Clone this repo to your local machine.
-  3.  git remote rename origin upstream
-  4.  git remote add origin URL_TO_GITHUB_REPO
-  5.  git push origin master
-Now you can work with it just like any other github repo. To pull in
-patches from upstream, simply run git pull upstream master && git push
-origin master.
+#RSPEC CHECK LIST
+ - gemfiles 
+ - database setup
+ - rails g rspec:install
+ - add  --format documentation to .rspec
+ - adjust the config/application.rb files inside the Application class
+   so when you generate you'll get RSpec files in your spec dir. 
+
+ config.generators do |g| 
+      g.test_framework :rspec,
+        :fixtures => true,
+        :view_specs => false,
+        :helper_specs => false,
+        :routing_specs => false,
+        :controller_specs => true,
+        :request_specs => true
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+ end 
+
 
